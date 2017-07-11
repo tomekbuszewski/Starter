@@ -1,11 +1,4 @@
 var path = require('path');
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
-var browserSync = new BrowserSyncPlugin({
-  server: {
-    baseDir: ['public']
-  }
-});
 
 module.exports = {
   devtool: 'source-map',
@@ -17,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       { // SCSS
-        test: /\.scss$/,
+        test: /\.scss$|css$/,
         use: [
           { loader: 'css-loader', options: { sourceMap: true } },
           { loader: 'sass-loader', options: { sourceMap: true, includePaths: ['./source/sass'] }}
@@ -30,8 +23,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    browserSync
-  ]
+  }
 };

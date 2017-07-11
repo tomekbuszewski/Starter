@@ -1,8 +1,6 @@
 var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-var extractScss = new ExtractTextPlugin({ filename: '[name].css' });
 var browserSync = new BrowserSyncPlugin({
   server: {
     baseDir: ['public']
@@ -19,7 +17,7 @@ module.exports = {
   module: {
     rules: [
       { // SCSS
-        test: /\.scss$/,
+        test: /\.scss|.css$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader', options: { sourceMap: true } },
@@ -35,7 +33,6 @@ module.exports = {
     ]
   },
   plugins: [
-    extractScss,
     browserSync
   ]
 };

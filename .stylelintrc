@@ -12,7 +12,6 @@
         }],
         "block-no-empty": true,
         "block-opening-brace-space-before": "always",
-        "color-hex-length": "long",
         "color-named": "never",
         "declaration-block-no-duplicate-properties": [true, {
             ignore: ["consecutive-duplicates-with-different-values"]

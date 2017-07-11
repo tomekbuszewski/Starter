@@ -1,7 +1,6 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 var extractScss = new ExtractTextPlugin({ filename: '[name].css' });
 var browserSync = new BrowserSyncPlugin({
@@ -9,7 +8,6 @@ var browserSync = new BrowserSyncPlugin({
     baseDir: ['public']
   }
 });
-var stylelint = new StyleLintPlugin({ context: './source' });
 
 module.exports = {
   devtool: 'source-map',
@@ -22,27 +20,23 @@ module.exports = {
     rules: [
       { // SCSS
         test: /\.scss$/,
-        use: extractScss.extract({
-          use: [
-            { loader: 'css-loader', options: { sourceMap: true } },
-            { loader: 'sass-loader', options: { sourceMap: true, includePaths: ['./source/sass'] }},
-            { loader: 'resolve-url-loader' }
-          ],
-          fallback: 'style-loader'
-        })
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { sourceMap: true } },
+          { loader: 'sass-loader', options: { sourceMap: true, includePaths: ['./source/sass'] }},
+          { loader: 'resolve-url-loader' }
+        ]
       },
       { // JavaScript
         test: /\.js$/,
         use: [
-          { loader: 'babel-loader' },
-          { loader: 'eslint-loader'}
+          { loader: 'babel-loader' }
         ]
       }
     ]
   },
   plugins: [
     extractScss,
-    browserSync,
-    stylelint
+    browserSync
   ]
 };

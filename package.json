@@ -22,8 +22,8 @@
     "webpack": "^2.2.1"
   },
   "scripts": {
-    "watch": "webpack -w",
-    "build": "webpack",
-    "prod": "webpack -p"
+    "watch": "webpack -w --config webpack.config.dev.js",
+    "build": "webpack --config webpack.config.dev.js",
+    "prod": "webpack -p --config webpack.config.prod.js"
   }
 }

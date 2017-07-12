@@ -1,5 +1,17 @@
-// SCSS
-import './sass/style.scss';
+import React from 'react';
+import { render as reactRender } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-// JS
-import './js/App.js';
+import App from './js/App';
+
+const rootEl = document.getElementById('root');
+const render = Component =>
+  reactRender(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    rootEl
+  );
+
+render(App);
+if (module.hot) module.hot.accept('./js/App', () => render(App));

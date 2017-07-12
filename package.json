@@ -26,6 +26,7 @@
   "scripts": {
     "watch": "webpack -w --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.dev.js",
-    "prod": "webpack -p --config webpack.config.prod.js"
+    "prod": "webpack -p --config webpack.config.prod.js",
+    "hmr": "webpack-dev-server --config webpack.config.dev.js"
   }
 }

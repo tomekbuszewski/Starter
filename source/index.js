@@ -14,4 +14,4 @@ const render = Component =>
   );
 
 render(App);
-if (module.hot) module.hot.accept('./js/App', () => render(App));
+module.hot.accept('./js/App', () => render(require('./js/App').default));

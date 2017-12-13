@@ -1,4 +1,7 @@
 {
+  "extends": [
+    "plugin:flowtype/recommended"
+  ],
   "env": {
     "browser": true,
     "node": true
@@ -73,6 +76,7 @@
     "yoda": "error"
   },
   "plugins": [
-    "react"
+    "react",
+    "flowtype"
   ]
 }

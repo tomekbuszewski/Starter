@@ -2,7 +2,7 @@ import React from 'react';
 import { render as reactRender } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import App from './js/App';
+import App from './components/App';
 
 const rootEl = document.getElementById('root');
 const render = Component =>
@@ -14,4 +14,7 @@ const render = Component =>
   );
 
 render(App);
-module.hot.accept('./js/App', () => render(require('./js/App').default));
+if (module.hot) {
+  module.hot.accept('./components/App', () => render(require('./components/App').default));
+}
+

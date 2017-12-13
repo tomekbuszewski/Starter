@@ -19,8 +19,8 @@ module.exports = {
         test: /\.scss|.css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { sourceMap: true } },
-          { loader: 'sass-loader', options: { sourceMap: true, includePaths: ['./source/sass'] }}
+          { loader: 'css-loader', options: { importLoader: 1, modules: true, localIdentName: '[path]___[name]__[local]___[hash:base64:5]' } },
+          { loader: 'sass-loader', options: { sourceMap: true } }
         ]
       },
       { // JavaScript

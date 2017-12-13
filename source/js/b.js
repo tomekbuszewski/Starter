@@ -1,5 +1,5 @@
 const func = () => {
-  console.log('I am imported');
+  return 'I am imported';
 };
 
 export default func;

@@ -1,3 +1,3 @@
 import func from './b';
 
-func();
+console.log(func());
